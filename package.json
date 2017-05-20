@@ -1,0 +1,24 @@
+{
+  "name": "retropie-resin-io",
+  "version": "1.0.0",
+  "description": "retropie-resin-io",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbuchacher/retropie-resin-io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbuchacher/retropie-resin-io/issues"
+  },
+  "homepage": "https://github.com/jbuchacher/retropie-resin-io#readme",
+  "dependencies": {
+    "node-sense-hat": "0.0.2"
+  }
+}
