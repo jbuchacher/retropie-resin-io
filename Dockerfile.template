@@ -33,4 +33,4 @@ RUN cd RetroPie-Setup
 
 COPY . /RetroPie-Setup
 
-CMD ["bash"]
+CMD ["bash", "start.sh"]
