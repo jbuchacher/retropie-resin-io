@@ -1,14 +1,31 @@
-FROM resin/raspberry-pi3-node:latest
+FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 
-ENV DEVICE_TYPE=%%RESIN_MACHINE_NAME%%
-ENV NODE_VERSION 6.9.1
-ENV RESIN_WIFI_CONNECT_VERSION 2.0.6
-
-RUN apt-get update && \
-    apt-get upgrade && \
-    apt-get install -yq --no-install-recommends \
-    git && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  git \
+  apt-utils \
+  clang \
+  xserver-xorg-core \
+  xserver-xorg-input-all \
+  xserver-xorg-video-fbdev \
+  xorg \
+  libxcb-image0 \
+  libxcb-util0 \
+  xdg-utils \
+  libdbus-1-dev \
+  libgtk2.0-dev \
+  libnotify-dev \
+  libgnome-keyring-dev \
+  libgconf2-dev \
+  libasound2-dev \
+  libcap-dev \
+  libcups2-dev \
+  libxtst-dev \
+  libxss1 \
+  libnss3-dev \
+  libsmbclient \
+  libssh-4 \
+  fbset \
+  libexpat-dev && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /RetroPie-Setup
 RUN git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
