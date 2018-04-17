@@ -1,31 +1,29 @@
 FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  git \
-  apt-utils \
-  clang \
-  xserver-xorg-core \
-  xserver-xorg-input-all \
-  xserver-xorg-video-fbdev \
-  xorg \
-  libxcb-image0 \
-  libxcb-util0 \
-  xdg-utils \
-  libdbus-1-dev \
-  libgtk2.0-dev \
-  libnotify-dev \
-  libgnome-keyring-dev \
-  libgconf2-dev \
-  libasound2-dev \
-  libcap-dev \
-  libcups2-dev \
-  libxtst-dev \
-  libxss1 \
-  libnss3-dev \
-  libsmbclient \
-  libssh-4 \
-  fbset \
-  libexpat-dev && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    avahi-daemon \
+    avahi-discover \
+    chromium-browser \
+    git \
+    gstreamer1.0 \
+    libav-tools \
+    libavahi-compat-libdnssd-dev \
+    libdbus-1-dev \
+    v4l-utils \
+    xfce4 \
+    xfce4-terminal \
+    xinit \
+    xserver-xorg-core \
+    xserver-xorg-input-all \
+    xserver-xorg-legacy \
+    xserver-xorg-video-fbdev \
+      && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Configure  X
+COPY Xwrapper.config /etc/X11/Xwrapper.config
+
+# Create GUI user
+RUN useradd -m pi
 
 WORKDIR /RetroPie-Setup
 RUN git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
