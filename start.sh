@@ -1,3 +1,3 @@
 #!/bin/bash
 
-su -u pi -c startx
+su -l pi -c startx
