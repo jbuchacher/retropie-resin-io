@@ -4,6 +4,4 @@ adduser --disabled-password --gecos "" pi
 
 for GROUP in adm dialout cdrom sudo audio video plugdev games users netdev input spi i2c gpio; do adduser pi $GROUP; done
 
-su pi
-
-startx
+su -l pi -c startx
