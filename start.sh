@@ -6,4 +6,4 @@ for GROUP in adm dialout cdrom sudo audio video plugdev games users netdev input
 
 su pi
 
-/RetroPie-Setup/RetroPie-Setup/retropie_setup.sh
+startx
