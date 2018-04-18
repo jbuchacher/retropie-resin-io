@@ -26,9 +26,6 @@ COPY Xwrapper.config /etc/X11/Xwrapper.config
 RUN useradd -m pi
 
 WORKDIR /RetroPie-Setup
-RUN git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
-RUN cd RetroPie-Setup
+COPY ./RetroPie-Setup/ .
 
-COPY . /RetroPie-Setup
-
-CMD ["bash", "start.sh"]
+CMD ["bash"]
